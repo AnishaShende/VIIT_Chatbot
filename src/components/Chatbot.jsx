@@ -43,14 +43,14 @@ function Chatbot() {
     if (inputText.trim() === '') return;
 
     dispatch({ type: 'ADD_MESSAGE', payload: { sender: 'user', message: inputText } });
-const response = await fetch("http://127.0.0.1:8000/chat", {
+const response = await fetch("https://clear-results-joke.loca.lt/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ input_text: inputText })
 });
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/chat", {
+      const response = await fetch("https://clear-results-joke.loca.lt/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input_text: inputText })
@@ -60,6 +60,7 @@ const response = await fetch("http://127.0.0.1:8000/chat", {
 
       if (data.response) {
         dispatch({ type: 'ADD_MESSAGE', payload: { sender: 'bot', message: data.response } });
+        console.log(data.response);
       } else {
         console.error("No response received from the backend.");
       }
