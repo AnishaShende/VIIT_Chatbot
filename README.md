@@ -2,7 +2,7 @@
 Step 1: Install Dependencies
 First, ensure that you have Python installed on your machine. You can download it from python.org.
 
-Then, create a virtual environment and install the required Python dependencies.
+Then, 
 ```bash
 # Navigate to the 'api' folder
 cd api
@@ -15,9 +15,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 Step 2:frontend
 ```bash
-# Navigate to the 'src' folder
-cd src
-
+cd..  (go out of api folder)
 # Install the necessary dependencies
 npm install
 
