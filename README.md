@@ -1,8 +1,45 @@
-# React + Vite
+1. Backend Setup (FastAPI + MongoDB + HuggingFace)
+Step 1: Install Dependencies
+First, ensure that you have Python installed on your machine. You can download it from python.org.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Then, create a virtual environment and install the required Python dependencies.
+```bash
+# Navigate to the 'api' folder
+cd api
 
-Currently, two official plugins are available:
+# Create a virtual environment (optional but recommended)
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Install required packages
+pip install -r requirements.txt
+```
+run the backend:
+uvicorn main:app --host 0.0.0.0 --port 8000
+
+Step 2:frontend
+```bash
+# Navigate to the 'src' folder
+cd src
+
+# Install the necessary dependencies
+npm install
+
+```
+Step 3: Update API URL
+In the Chatbot.jsx component, update the API URL to point to your locally running FastAPI backend:
+javascript
+Copy code
+const response = await fetch("http://127.0.0.1:8000/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ input_text: inputText })
+});
+
+step4: run
+npm run dev
+
+
+
+
