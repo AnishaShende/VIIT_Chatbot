@@ -26,11 +26,13 @@ Step 3: Update API URL
 In the Chatbot.jsx component, update the API URL to point to your locally running FastAPI backend:
 javascript
 Copy code
+```
 const response = await fetch("http://127.0.0.1:8000/chat", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ input_text: inputText })
 });
+```
 
 step4: run
 npm run dev
