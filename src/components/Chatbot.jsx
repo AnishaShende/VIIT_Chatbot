@@ -41,34 +41,34 @@ function Chatbot() {
   const sendMessage = async () => {
     const { inputText } = state;
     if (inputText.trim() === '') return;
-
+  
     dispatch({ type: 'ADD_MESSAGE', payload: { sender: 'user', message: inputText } });
-const response = await fetch("http://127.0.0.1:8000/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ input_text: inputText })
-});
-
+  
     try {
-      const response = await fetch("http://127.0.0.1:8000/chat", {
+      const response = await fetch("https://clear-results-joke.loca.lt/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input_text: inputText })
       });
-
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
       const data = await response.json();
-
+  
       if (data.response) {
         dispatch({ type: 'ADD_MESSAGE', payload: { sender: 'bot', message: data.response } });
       } else {
         console.error("No response received from the backend.");
       }
-
+  
     } catch (error) {
       console.error("Error:", error);
+      dispatch({ type: 'ADD_MESSAGE', payload: { sender: 'bot', message: 'Sorry, something went wrong.' } });
     }
   };
-
+  
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       sendMessage();
