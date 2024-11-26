@@ -1,0 +1,11 @@
+fastapi==0.115.2
+langchain
+langchain_huggingface
+pymongo==4.10.1
+torch
+transformers==4.44.2
+uvicorn==0.32.0
+sentence-transformers
+langchain-community
+langchain_mongodb
+langchain_huggingface
