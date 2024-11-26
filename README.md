@@ -7,11 +7,6 @@ Then, create a virtual environment and install the required Python dependencies.
 # Navigate to the 'api' folder
 cd api
 
-# Create a virtual environment (optional but recommended)
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-
 # Install required packages
 pip install -r requirements.txt
 ```
