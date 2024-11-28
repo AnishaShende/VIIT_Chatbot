@@ -35,6 +35,7 @@ const response = await fetch("http://127.0.0.1:8000/chat", {
 step4:
 npm run dev
 
+![image](https://github.com/user-attachments/assets/4b176849-3da4-4a38-8491-0761d5540afd)
 
 
 
